@@ -9,7 +9,7 @@ public class Customer {
     public Customer(String name, double transction) {
         this.name = name;
         this.transactions = new ArrayList<>();
-        this.transactions.add(transction);
+        addTransaction(transction);
     }
 
     public String getName() {

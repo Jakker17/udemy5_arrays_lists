@@ -20,20 +20,21 @@ public class Branch {
     }
 
     public boolean newCustomer(String name, double transaction){
-        customers.add(new Customer(name,transaction));
-        for (Customer customer:customers) {
-            if (customer.getName().equals(name))return true;
-        }
+            if (findCustomer(name)==null){
+                this.customers.add(new Customer(name,transaction));
+                return true;
+            }
+
         return false;
     }
 
-    public boolean addCustomerTransaction(String name, double transaction){
-        Customer customer = findCustomer(name);
-        customer.addTransaction(transaction);
-        ArrayList<Double> transactions = customer.getTransactions();
-        for (Double customerTransaction:transactions) {
-            if (customerTransaction.equals(transaction))return true;
+    public boolean addCustomerTransaction(String customerName, double amount) {
+        Customer existingCustomer = findCustomer(customerName);
+        if(existingCustomer != null) {
+            existingCustomer.addTransaction(amount);
+            return true;
         }
+
         return false;
     }
 

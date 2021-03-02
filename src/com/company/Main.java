@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.BankingApp.Bank;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,7 +42,23 @@ public class Main {
 
 
 
-        System.out.println(Arrays.toString(inArray(new String[]{ " ", "mice", "bull" },new String[] { "lively", "mice", "harp", "shar-p", "armstrong", "tarped ", "bullied" })));
+        //System.out.println(Arrays.toString(inArray(new String[]{ " ", "mice", "bull" },new String[] { "lively", "mice", "harp", "shar-p", "armstrong", "tarped ", "bullied" })));
+
+        Bank bank = new Bank("National Australia Bank");
+
+        bank.addBranch("Adelaide");
+
+        bank.addCustomer("Adelaide", "Tim", 50.05);
+        bank.addCustomer("Adelaide", "Mike", 175.34);
+        bank.addCustomer("Adelaide", "Percy", 220.12);
+
+        bank.addCustomerTransaction("Adelaide", "Tim", 44.22);
+        bank.addCustomerTransaction("Adelaide", "Tim", 12.44);
+        bank.addCustomerTransaction("Adelaide", "Mike", 1.65);
+
+        bank.listCustomers("Adelaide", true);
+
+
 
     }
 
